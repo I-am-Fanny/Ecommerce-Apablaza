@@ -1,0 +1,41 @@
+.NavbarItems{
+    background-color:rgb(224, 108, 12);
+    box-shadow: 2px 2px 1px  rgb(139, 139, 139);
+    box-sizing: border-box;
+    padding-top: 10px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+  }
+
+  .navbar-logo{
+      color: #fff;
+      justify-self: start;
+      margin-left: 10px;
+      cursor: pointer;
+  }
+
+  .fa-basketball-ball{
+      margin-left: 0.5rem;
+      font-size: 1.8rem;
+      color: blueviolet;
+
+  }
+
+  .nav-menu{
+      display: grid;
+      grid-template-columns: repeat(5,auto);
+      grid-gap:10px;
+      list-style: none;
+      text-align: center;
+      width: 60vw;
+      justify-content: end;
+      margin-right: 1.5rem;
+  }
+
+  .nav-links{
+      color: #fff;
+      text-decoration: none;
+  }
