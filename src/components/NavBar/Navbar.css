@@ -26,16 +26,15 @@
 
   .nav-menu{
       display: grid;
-      grid-template-columns: repeat(5,auto);
+      grid-template-columns: repeat(6,auto);
       grid-gap:10px;
       list-style: none;
       text-align: center;
       width: 60vw;
-      justify-content: end;
+      justify-content: center;
       margin-right: 1.5rem;
   }
 
-  .nav-links{
-      color: #fff;
-      text-decoration: none;
-  }
+  
+
+ 

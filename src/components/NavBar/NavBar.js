@@ -1,6 +1,10 @@
 import React from 'react';
-import { MenuItems } from './MenuItems'
+import { MenuItems } from '../MenuItems/MenuItems';
+import '../MenuItems/Menuitems.css'
 import './Navbar.css'
+import NavCart from '../NavCart/NavCart';
+import '../NavCart/NavCart.css'
+
 
 class NavBar extends React.Component {
     state = {clicked:false}
@@ -14,20 +18,23 @@ class NavBar extends React.Component {
 
                     </div>
                     <ul className="nav-menu">
-                        {MenuItems.map((item,index)=>{
-                            return(
-                                <li key={index}>
-                                    <a className={item.cName} href={item.url}>
-                                    {item.title}
-                                    </a>
-                                </li>
-                            )
-
+                        {MenuItems.map((item,index) => {
+                           return(
+                               <li key={index}>
+                                  <a ClassName={item.cName} href={item.url}>
+                                      {item.title}
+                                  </a>
+                               </li>
+                           )
                         })}
+                        <button className="nav-cart"><NavCart/></button>
                         
                     </ul>
+                    
                  </nav>
+                 
              </div>
+             
              </>
          );
      }

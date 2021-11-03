@@ -1,4 +1,6 @@
- export const MenuItems = [
+ import './Menuitems.css'
+ 
+  export const MenuItems = [
     {
         title:'Home',
         url:'#',
@@ -26,3 +28,5 @@
     },
 
 ]
+
+
