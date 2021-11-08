@@ -1,9 +1,10 @@
 import React from 'react';
-import { MenuItems } from '../MenuItems/MenuItems';
-import '../MenuItems/Menuitems.css'
+import { MenuItems } from './MenuItems/MenuItems';
+import './MenuItems/Menuitems.css'
 import './Navbar.css'
 import NavCart from '../NavCart/NavCart';
 import '../NavCart/NavCart.css'
+
 
 
 class NavBar extends React.Component {
