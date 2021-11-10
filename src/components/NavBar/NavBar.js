@@ -4,7 +4,7 @@ import './MenuItems/Menuitems.css'
 import './Navbar.css'
 import NavCart from '../NavCart/NavCart';
 import '../NavCart/NavCart.css'
-
+import banner2 from '../../assets/img/banner2.jpg'
 
 
 class NavBar extends React.Component {
@@ -33,6 +33,7 @@ class NavBar extends React.Component {
                     </ul>
                     
                  </nav>
+                 <img className="banner" src={banner2} alt="imagen"/>
                  
              </div>
              

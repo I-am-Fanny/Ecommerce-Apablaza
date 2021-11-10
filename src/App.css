@@ -4,3 +4,36 @@
   box-sizing: border-box;
   font-family: Verdana, sans-serif;
 }
+
+
+
+
+/*Estilos de productos*/
+.card{
+  display: flex;
+  flex-direction: column;
+  flex: row;
+  width: 25rem;
+  margin: 20px;
+  border-radius: black 20px;
+  
+}
+
+.card-title{
+  
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgb(88, 87, 87);
+  text-transform: uppercase;
+}
+
+.card-subtitle{
+  font-size: 1.3rem;
+  color: rgb(74, 0, 143);
+}
+
+.card-text{
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
