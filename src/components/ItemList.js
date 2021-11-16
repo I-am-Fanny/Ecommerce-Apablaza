@@ -1,34 +1,25 @@
-import ItemCount from '../components/ItemCount';
+import Item from "./Item";
+import products from "./Products/data"
 
 
-const Productos = ({name,imagen,precio,descripcion}) => {
+ const ItemList = (time, task) => {
+      return new Promise((resolve, reject)=>{
+          if(Item.length>0){
+             setTimeout(()=>{
+                 resolve(task)
+             },time);
+          }else{
+              reject("No pueden cargarse los productos")
+          }
+      });
     
-    return(
-        <>
-        <div className="container d-flex justify-content-center">
-        <div className="card ">
-        <div>
-        <img className="card-img-top" src={imagen} alt="imagen" />    
-        </div>
-        <div>
-        <ItemCount max={5} initial={1}/>
-        </div>
-        <div className="card-body">
-        <h3 className="card-title">{name}</h3>
-        <strong className="card-subtitle">{precio}</strong>
-        <p className="card-text">{descripcion}</p>
-        </div>
-       
-        </div>
-        </div>
-        
-        
-         
-         
-        
-        
-        </>
-    )
-}
+ }
 
-export default Productos;
+ ItemList(0,Item)
+ .then(() => ItemList(2000, 
+    Item.map((<Item name={products.name} imagen={products.imagen} precio={products.precio} descripcion={products.descripcion}/>))))
+.catch((err)=>alert(err))
+.finally(()=>console.log("Finalizado"));
+
+
+ export default ItemList;
