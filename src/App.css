@@ -9,15 +9,14 @@
 
 
 /*Estilos de productos*/
-.card{
-  display: flex;
-  flex-direction: column;
-  flex: row;
-  width: 25rem;
-  margin: 20px;
-  border-radius: black 20px;
-  
+
+
+.card-body{
+ display: flex;
+ justify-content: center;
 }
+
+
 
 .card-title{
   
@@ -25,15 +24,14 @@
   font-weight: 700;
   color: rgb(88, 87, 87);
   text-transform: uppercase;
+  text-align: center;
 }
 
-.card-subtitle{
-  font-size: 1.3rem;
-  color: rgb(74, 0, 143);
-}
+
 
 .card-text{
   font-size: 0.8rem;
-  font-weight: 500;
+  font-weight: 700;
+  text-align: center;
   text-transform: uppercase;
 }

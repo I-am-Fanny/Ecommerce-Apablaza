@@ -1,31 +1,23 @@
-import ItemCount from '../components/ItemCount';
+import ItemCount from "./ItemCount";
 
 
-const Item = ({name,imagen,precio,descripcion}) => {
-    
-    return(
-        <>
-        <div className="container d-flex justify-content-center">
-        <div className="card">
-        <div>
-        <img className="card-img-top" src={imagen} alt="imagen" />    
-        </div>
-        <div>
-        <ItemCount max={5} initial={1}/>
-        </div>
-        <div className="card-body">
-        <h3 className="card-title">{name}</h3>
-        <strong className="card-subtitle">{precio}</strong>
-        <p className="card-text">{descripcion}</p>
-        </div>
-       
-        </div>
-        </div>
-    
-        
-        </>
-    )
-}
+ const Item = ({title, stock, price, pictureUrl }) => {
+     return(
+         <>
+         <div className="container">
+         <div className="card-body">
+             <div className="card">
+              <h2 className="card-title">{title}</h2>
+              <img className="card-img" src={pictureUrl} alt="imagen producto"/>
+              <strong className="card-text">{price}</strong>
+                 <h4 className="card-text">{stock} Unidades</h4>
+                 <ItemCount/>
+             </div>
+             
+         </div>
+         </div>
+         </>
+     );
+ }
 
-
-export default Item;
+ export default Item;

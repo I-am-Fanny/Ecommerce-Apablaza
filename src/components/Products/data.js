@@ -3,6 +3,9 @@
 const products = [
 
     //Dama
+    
+   
+   
     {
        name: "Calza",
        imagen:"https://thumbs.nosto.com/quick/rbxh5h46/8/438818_alt_64cdcce2188af1af5aeee350def0f5d02c78b2b3a9b3b721a1e33e196a029ef6/956afd5ea41d7841cee88e112e435ac291c9d19ca7fed19472c277de94ade72da/A",
@@ -12,6 +15,8 @@ const products = [
        id:1
     },
 
+    
+    
     {
         name: "Top",
         imagen: "https://thumbs.nosto.com/quick/rbxh5h46/8/374991_alt_3fffac97a9db785539f3acd84491b3f066d399f5b1ab7d22ed2cf2d80bf4a907/b188356fcb954c844e9de7fce50c5e9920919a50dd845fb9a1f91843ca5ae087a/A",
@@ -29,9 +34,10 @@ const products = [
         descripcion: "Diseñada para corredoras con pisada neutra. Con puyap. Soporte liviano.",
         id:3
      },
-
-    
+   
+   
     //Hombre
+   
 
  {
     name: "Pantalon",
@@ -60,7 +66,9 @@ const products = [
     id:6
  },
 
+   
 
+   
 
      //Niño
 
@@ -91,6 +99,10 @@ const products = [
         id:9
      },
 
+   
+
+   
+
      //Niña
 
      {
@@ -119,6 +131,7 @@ const products = [
         descripcion: "Los partidos con amigos y entrenamientos serán muchos más divertidos con esta pelota KAPPA 20.3G de medio pique. Tamaño: N4.",
         id:12
      }
+   
 
 ]
 
