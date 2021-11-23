@@ -11,10 +11,16 @@
 /*Estilos de productos*/
 
 
+
 .card-body{
- display: flex;
- justify-content: center;
+  padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
+
+
+
 
 
 
@@ -28,6 +34,12 @@
 }
 
 
+.card-img{
+ height: 75%;
+ width: 100%;
+}
+
+
 
 .card-text{
   font-size: 0.8rem;
@@ -35,3 +47,4 @@
   text-align: center;
   text-transform: uppercase;
 }
+

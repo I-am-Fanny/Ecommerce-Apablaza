@@ -1,45 +1,32 @@
-import React from 'react';
-import { MenuItems } from './MenuItems/MenuItems';
-import './MenuItems/Menuitems.css'
-import './Navbar.css'
-import NavCart from '../NavCart/NavCart';
+import { AppBar, BottomNavigation, Breadcrumbs, MenuItem, Typography} from '@mui/material';
+import SportsKabaddiIcon from '@mui/icons-material/SportsKabaddi';
+import { Link } from 'react-router-dom';
 import '../NavCart/NavCart.css'
-import banner2 from '../../assets/img/banner2.jpg'
+import NavCart from '../NavCart/NavCart'
+import { Box } from '@mui/system';
 
-
-class NavBar extends React.Component {
-    state = {clicked:false}
-     render(){
-         return (
-             <>
-             <div>
-                 <nav className="NavbarItems">
-                     <h1 className="navbar-logo">Encestalo<i className="fas fa-basketball-ball"></i></h1>
-                    <div className="menu-icon">
-
-                    </div>
-                    <ul className="nav-menu">
-                        {MenuItems.map((item,index) => {
-                           return(
-                               <li key={index}>
-                                  <a ClassName={item.cName} href={item.url}>
-                                      {item.title}
-                                  </a>
-                               </li>
-                           )
-                        })}
-                        <button className="nav-cart"><NavCart/></button>
-                        
-                    </ul>
+const NavBar = () => {
+    return(
+        
+           <Box sx={{display:'inline-flex'}} position='relative'>    
+           <AppBar>
+            <Breadcrumbs sx={{bgcolor:'secondary.main'}}>
+            <Link to='/' style={{textDecoration:'none', color:'orange', display:'flex' ,justifyContent:'left' }}><Typography sx={{fontWeight:'bold', fontFamily:'monospace', fontSize:25}}>Encestalo</Typography><SportsKabaddiIcon/></Link>
+             </Breadcrumbs>
+                
+                
+                    <BottomNavigation sx={{bgcolor:'secondary.main'}}>
+                        <Link to='/category/13' underline='hover' style={{textDecoration:'none', color:'White', display:'flex', justifyContent:'center'}}><MenuItem>Woman</MenuItem></Link>
+                        <Link to='/category/14' underline='hover' style={{textDecoration:'none', color:'White', display:'flex', justifyContent:'center'}}><MenuItem>Man</MenuItem></Link>
+                        <Link to='/category/15' underline='hover' style={{textDecoration:'none', color:'White', display:'flex', justifyContent:'center'}}><MenuItem>Boy</MenuItem></Link>
+                        <Link to='/category/16' underline='hover' style={{textDecoration:'none', color:'White', display:'flex', justifyContent:'center'}}><MenuItem>Girl</MenuItem></Link>
+                        <NavCart/>
+                    </BottomNavigation>
                     
-                 </nav>
-                 <img className="banner" src={banner2} alt="imagen"/>
-                 
-             </div>
-             
-             </>
-         );
-     }
+            </AppBar>                          
+            </Box>
+            
+    )         
 }
 
 export default NavBar;
