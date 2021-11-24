@@ -1,7 +1,7 @@
 
 
 
-const Products = [
+const products = [
 
     //Mujer
     
@@ -15,11 +15,17 @@ const Products = [
        descripcion: "Comodidad para el día a día. Look con 3 tonos de colores y logo estampado",
        id:1,
        categoryId: 13,
+       brandId:17,
        category: {
           name: "Mujer",
           id:13
          
        },
+       brand:{
+          id:17,
+          name:"Fila"
+       },
+       review:[]
     },
 
     
@@ -32,10 +38,16 @@ const Products = [
         descripcion: "La tela suave con tecnología Dri-FIT mueve el sudor de tu piel para una evaporación más rápida y ayudarte a mantenerte seca y cómoda.",
         id:2,
         categoryId: 13,
+        brandId:18,
         category: {
            name: "Mujer",
            id: 13
         },
+        brand: {
+           id:18,
+           name:"Nike"
+        },
+        review:[]
      },
 
      {
@@ -46,10 +58,16 @@ const Products = [
         descripcion: "Diseñada para corredoras con pisada neutra. Con puyap. Soporte liviano.",
         id:3,
         categoryId: 13,
+        brandId:19,
         category: {
            name: "Mujer",
            id: 13
         },
+        brand:{
+           id:19,
+           name:"Adidas"
+        },
+        review:[]
      },
    
 
@@ -67,10 +85,16 @@ const Products = [
       descripcion: "Posee cintura elastizada con cordon de ajuste interno. Bolsillos laterales y botamanga con puño elastizado.",
       id:4,
       categoryId: 14,
+      brandId:20,
         category: {
            name: "Hombre",
            id: 14
         },
+        brand:{
+           id:20,
+           name:"Puma"
+        },
+        review:[]
    },
   
    {
@@ -81,10 +105,16 @@ const Products = [
       descripcion: "Lucite con la remera estampada de algodón FILA Over Digital. Regular fitLogo FILA aplicado.",
       id:5,
       categoryId: 14,
+      brandId:21,
         category: {
            name: "Hombre",
            id: 14
         },
+        brand:{
+           id:21,
+           name: "Fila"
+        },
+        review:[]
    },
   
    {
@@ -95,10 +125,16 @@ const Products = [
       descripcion: "Incorporan amortiguación flexible y liviana Bounce. La tecnología Jetboost en el talón te retorna aún más energía con cada paso y maximiza la sensación de estabilidad.",
       id:6,
       categoryId: 14,
+      brandId: 22,
         category: {
            name: "Hombre",
            id: 14
         },
+        brand:{
+           id: 22,
+           name: "Adidas"
+        },
+        review:[]
    },
   
 
@@ -115,10 +151,16 @@ const Products = [
          descripcion: "El conjunto de running para niño es la opción ideal para los entrenamientos de los más pequeños.",
          id:7,
          categoryId: 15,
+         brandId: 23,
         category: {
            name: "Niño",
            id: 15
         },
+        brand:{
+           id:23,
+           name: "Topper"
+        },
+        review:[]
       },
  
       {
@@ -129,10 +171,16 @@ const Products = [
          descripcion: "Diseño y detalles únicos para lo más chicos en un calzado de performance para quienes practican deporte y aman la moda. ",
          id:8,
          categoryId: 15,
+         brandId: 24,
          category: {
            name: "Niño",
            id: 15
         },
+        brand:{
+           id: 24,
+           name: "Topper"
+        },
+        review:[]
       },
  
       {
@@ -143,10 +191,16 @@ const Products = [
          descripcion: "Acompañá a tu equipo favorito con la Pelota de fútbol del Manchester City. Tamaño: Nº5.",
          id:9,
          categoryId: 15,
+         brandId:25,
          category: {
            name: "Niño",
            id: 15
         },
+        brand: {
+           id: 25,
+           name: "Manchester"
+        },
+        review:[]
       },
  
 
@@ -165,10 +219,16 @@ const Products = [
          descripcion: "La remera estampada es ligera y muy suave. Las calzas elásticas lucen un estampado inspirado en diamantes.",
          id:10,
          categoryId: 16,
+         brandId:26,
          category: {
            name: "Niña",
            id: 16
         },
+        brand:{
+           id:26,
+           name: "Adidas"
+        },
+        review:[]
       },
  
       {
@@ -180,10 +240,16 @@ const Products = [
          id:11,
          
          categoryId: 16,
+         brandId: 27,
          category: {
            name: "Niña",
            id: 16
         },
+        brand: {
+           id:27,
+           name: "Topper"
+        },
+        review:[]
       },
  
       {
@@ -194,10 +260,16 @@ const Products = [
          descripcion: "Los partidos con amigos y entrenamientos serán muchos más divertidos con esta pelota KAPPA 20.3G de medio pique. Tamaño: N4.",
          id:12,
          categoryId: 16,
+         brandId: 28,
          category: {
            name: "Niña",
            id: 16
         },
+        brand:{
+           id:28,
+           name: "Kappa"
+        },
+        review:[]
       }
     
    ]
@@ -211,4 +283,6 @@ const Products = [
  
 
 
-export default Products;
+module.exports ={
+   products,
+}

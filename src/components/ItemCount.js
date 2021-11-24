@@ -1,35 +1,50 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const ItemCount = (props) => {
+const ItemCount = ( { stock = 0, initial = 1, onAdd}) => {
 
-    const [cantidad, setCantidad] = useState(1);
+    const [cantidad, setCantidad] = useState(0);
+
+
+    useEffect(() => {
+        setCantidad(initial);
+    }, [initial]);
 
     const increment = () =>{
 
-        if (cantidad < props.max)setCantidad(cantidad+1);
+        if (cantidad < stock ) {
+            setCantidad(cantidad + 1);
     }
-
-    const decrement = () =>{
-       if (cantidad > 1) setCantidad(cantidad-1);
-    }
-
-const agregar = () =>{
-    console.log(`Se agregó ${cantidad} productos al carrito`)
 }
-    
+
+
+    function decrement() {
+        if (cantidad > initial + 1) {
+            setCantidad(cantidad - 1);
+        }
+    }
+
+
     return(
          <>
         <div className=" text-center d-block">
            <button className="btn btn-warning" onClick={decrement}>-</button>
             {cantidad}
             <button className="btn btn-warning" onClick={increment}>+</button>
+
+            {
+                stock && cantidad
+                ?<div className="m-1">
+                <button className="btn btn-success" onClick= {() => onAdd(cantidad)}>Agregar</button>
+                </div>
+                : <div>
+                    <button className="btn btn-success"> Agregar</button>
+                </div>
+
+            }
             
-            <div className="m-1">
-            <button className="btn btn-success" onClick={agregar}>Agregar</button>
             </div>
-        </div>
          </>
-    )
+    );
 }
 
 export default ItemCount;
