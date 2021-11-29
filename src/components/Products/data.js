@@ -7,13 +7,14 @@ const products = [
     
    
    
-    {
+    {  
+       id:1,
        name: "Calza",
        imagen:["https://thumbs.nosto.com/quick/rbxh5h46/8/438818_alt_64cdcce2188af1af5aeee350def0f5d02c78b2b3a9b3b721a1e33e196a029ef6/956afd5ea41d7841cee88e112e435ac291c9d19ca7fed19472c277de94ade72da/A"],
        precio: "$7500",
        stock: "25",
        descripcion: "Comodidad para el día a día. Look con 3 tonos de colores y logo estampado",
-       id:1,
+       
        categoryId: 13,
        brandId:17,
        category: {

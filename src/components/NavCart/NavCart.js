@@ -1,14 +1,26 @@
-import React from "react";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import './NavCart.css'
 
-const NavCart = () => {
-    return(
-        <>
-         <AiOutlineShoppingCart/>
-         <span>1</span>
-        </>
-    )
+import * as React from 'react';
+import Badge from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    right: -10,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: '0 4px',
+  },
+}));
+ const NavCart = () => {
+  return (
+    <IconButton aria-label="cart" sx={{color :'white'}}>
+      <StyledBadge badgeContent={1} color="warning">
+        <ShoppingCartIcon />
+      </StyledBadge>
+    </IconButton>
+  );
 }
 
 export default NavCart;

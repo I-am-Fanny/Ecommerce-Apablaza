@@ -20,7 +20,8 @@ const NavBar = () => {
                         <Link to='/category/14' underline='hover' style={{textDecoration:'none', color:'White', display:'flex', justifyContent:'center'}}><MenuItem>Man</MenuItem></Link>
                         <Link to='/category/15' underline='hover' style={{textDecoration:'none', color:'White', display:'flex', justifyContent:'center'}}><MenuItem>Boy</MenuItem></Link>
                         <Link to='/category/16' underline='hover' style={{textDecoration:'none', color:'White', display:'flex', justifyContent:'center'}}><MenuItem>Girl</MenuItem></Link>
-                        <NavCart/>
+                        <Link to='/cart' underline='hover' style={{textDecoration:'none', color:'White', display:'flex', justifyContent:'end'}}><NavCart/></Link>
+                        
                     </BottomNavigation>
                     
             </AppBar>                          

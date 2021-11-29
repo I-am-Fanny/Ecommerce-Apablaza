@@ -1,26 +1,24 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import ItemDetail from './ItemDetail';
-import Promesa from './Products/promesa';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-const { products} = require('./Products/data')
+import Promesa from './Products/promesa';
+import ItemDetail  from './ItemDetail';
+const { products } = require('./Products/data')
 
 
 const ItemDetailContainer = () => {
 
     const[dato, setDato] = useState({});
-    const { idItem  }= useParams();
-
+    const { itemId  } = useParams();
+    
 
     useEffect(() => {
-        Promesa(2000, products.find(item => {
-            if(idItem === undefined) return item;
-            return item.id === parseInt(idItem)
-        }))
+        Promesa(2000, products.find(item => item.id === parseInt( itemId)))
         .then(result => setDato(result))
         .catch(err => console.log(err))
+        
     
-    }, [idItem]);
+    }, [dato, itemId]);
 
     return(
         <ItemDetail item={dato}/>

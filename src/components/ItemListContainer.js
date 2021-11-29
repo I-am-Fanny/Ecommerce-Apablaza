@@ -5,7 +5,7 @@ import { useParams } from 'react-router';
 const { products} = require('./Products/data')
 
 const ItemListContainer = () => {
-  const[dato, setDatos] = useState([]);
+  const[datos, setDatos] = useState([]);
   const { idCat } = useParams();
 
 
@@ -17,12 +17,12 @@ const ItemListContainer = () => {
     }))
     .then(result => setDatos(result))
     .catch(err=> console.log(err))
-  },[dato, idCat]);
+  },[datos, idCat]);
 
 
   return(
    <>
-    <ItemList items={dato}/>
+    <ItemList items={datos}/>
     
     </>
   );

@@ -1,49 +1,55 @@
+import { Button, IconButton} from "@mui/material";
+import { Box } from "@mui/system";
 import { useState, useEffect } from "react";
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+
 
 const ItemCount = ( { stock = 0, initial = 1, onAdd}) => {
 
-    const [cantidad, setCantidad] = useState(0);
+    const [count, setCount] = useState(0);
 
 
     useEffect(() => {
-        setCantidad(initial);
+        setCount(initial);
     }, [initial]);
 
     const increment = () =>{
-
-        if (cantidad < stock ) {
-            setCantidad(cantidad + 1);
+        if (count < stock ) {
+            setCount(count + 1);
+        
     }
 }
 
 
-    function decrement() {
-        if (cantidad > initial + 1) {
-            setCantidad(cantidad - 1);
+    const decrement = () => {
+        if (count > initial+1) {
+            setCount(count - 1);
         }
     }
 
 
     return(
-         <>
-        <div className=" text-center d-block">
-           <button className="btn btn-warning" onClick={decrement}>-</button>
-            {cantidad}
-            <button className="btn btn-warning" onClick={increment}>+</button>
-
-            {
-                stock && cantidad
-                ?<div className="m-1">
-                <button className="btn btn-success" onClick= {() => onAdd(cantidad)}>Agregar</button>
-                </div>
-                : <div>
-                    <button className="btn btn-success"> Agregar</button>
-                </div>
-
+        
+         <Box sx={{display:'inline-flex' , m:5, p:5, justifyContent:'center', alignItems:'center'}}>
+             <Button variant="text" onClick={increment}><AddCircleOutlineIcon/></Button>
+             <IconButton>{count}</IconButton>
+             <Button variant="text" onClick={decrement}><RemoveCircleOutlineIcon/></Button>
+         
+             {
+                stock && count
+                ? <Button variant="contained" onClick={() => onAdd(count)}>Agregar</Button>
+                : <Button variant="contained" > Agregar</Button>
+                
             }
+         
+         </Box>
+        
+
             
-            </div>
-         </>
+            
+            
+         
     );
 }
 
