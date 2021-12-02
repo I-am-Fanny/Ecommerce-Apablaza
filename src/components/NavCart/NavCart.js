@@ -2,8 +2,11 @@
 import * as React from 'react';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
+
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { CartContext } from '../CartContext';
+import { useContext } from 'react';
+
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -14,12 +17,14 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
  const NavCart = () => {
+   const test = useContext(CartContext);
+
   return (
-    <IconButton aria-label="cart" sx={{color :'white'}}>
-      <StyledBadge badgeContent={1} color="warning">
+    
+      <StyledBadge badgeContent={test.calculoQuantity} sx={{color:'white'}}>
         <ShoppingCartIcon />
       </StyledBadge>
-    </IconButton>
+    
   );
 }
 
