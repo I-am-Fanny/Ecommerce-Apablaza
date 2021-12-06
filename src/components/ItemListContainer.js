@@ -1,8 +1,7 @@
 import ItemList from './ItemList';
-import Promesa from './Products/promesa';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-const { products} = require('./Products/data')
+import firestore from './Products/fireStore';
 
 const ItemListContainer = () => {
   const[datos, setDatos] = useState([]);
@@ -11,14 +10,17 @@ const ItemListContainer = () => {
 
 
   useEffect(() => {
-    Promesa(2000, products.filter(item =>{
-      if(idCat === undefined) return item;
-      return item.categoryId === parseInt(idCat)
-    }))
-    .then(result => setDatos(result))
-    .catch(err=> console.log(err))
-  },[datos, idCat]);
+    firestore(idCat)
+    .then((result) => setDatos(result))
+    .catch(err => console.log(err))
+  },[ idCat]);
 
+
+   useEffect(() => {
+     return (() => {
+       setDatos([]);
+     })
+   })
 
   return(
    <>

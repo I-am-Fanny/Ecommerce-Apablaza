@@ -1,10 +1,12 @@
-import { Button, Card, CardActionArea, CardContent, CardMedia, Chip, Fab, Typography } from "@mui/material";
+import { Button, Card, CardActionArea, CardContent, CardMedia,  Fab, Typography } from "@mui/material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Box } from "@mui/system";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import { Link } from "react-router-dom"
 import Container from "@mui/material/Container"
+
+import Number from './Products/number'
 
 const Cart = () => {
     const test = useContext(CartContext);
@@ -48,15 +50,15 @@ const Cart = () => {
                          <Typography  variant="h3" component="div">Presupuesto</Typography>
                          <CardContent>
                              <Typography variant="h4">Subtotal</Typography>
-                             <Box><Chip variant="number" number={test.calculoSubTotal()}/></Box>
+                             <Box><Number number={test.calculoSubTotal()}/></Box>
                          </CardContent>
                          <CardContent>
                              <Typography>IVA</Typography>
-                             <Box><Chip number={test.calculoImpuestos()}/></Box>
+                             <Box><Number number={test.calculoImpuestos()}/></Box>
                          </CardContent>
                          <CardContent>
                              <Typography>Total</Typography>
-                             <Box><Chip number={test.totalCompra()}/></Box>
+                             <Box><Number number={test.totalCompra()}/></Box>
                          </CardContent>
                          <Button>Comprar</Button>
                      </Card>
