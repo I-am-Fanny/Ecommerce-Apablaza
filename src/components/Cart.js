@@ -8,8 +8,53 @@ import Container from "@mui/material/Container"
 
 import Number from './Products/number'
 
+import { collection, doc, setDoc, updateDoc, increment } from "firebase/firestore";
+
+import  db  from './Products/configFirebase';
+
 const Cart = () => {
     const test = useContext(CartContext);
+
+    const createOrders = () => {
+        let orders = {
+            buyer: {
+                name: "Fanny Apablaza",
+                email: "fanny@apablaza.com",
+                phone: "1123456789"
+            },
+            items: test.cartList.map(item => ({
+                id: item.itemId,
+                title: item.nameItem,
+                price: item.precioItem,
+                quantity: item.qtyItem
+            })),
+            total: test.totalCompra()
+        };
+
+
+       
+        
+        const createOrderFireStore = async() => {
+            const newOrderRef = doc(collection(db, "orders"));
+            await setDoc(newOrderRef, orders);
+            return newOrderRef;
+        }
+
+        createOrderFireStore()
+        .then(result => alert(result.id))
+        .catch(err => console.log(err))
+        
+        
+
+        test.cartList.forEach(async(item) => {
+            const itemRef = doc(db, "products", item.itemId);
+            await updateDoc(itemRef, {
+                stock: increment(-item.qtyItem)
+            })
+        })
+        
+        test.removeList();
+       }
     return(
         <Box>
            <Typography variant="h5" component="div" gutterBottom m={5} p={5} sx={{display:'flex', justifyContent:'center', color:'warning.main'}}>COMPRAS</Typography>
@@ -60,7 +105,7 @@ const Cart = () => {
                              <Typography>Total</Typography>
                              <Box><Number number={test.totalCompra()}/></Box>
                          </CardContent>
-                         <Button>Comprar</Button>
+                         <Button onClick={createOrders}>Comprar</Button>
                      </Card>
                  </Container>
              }

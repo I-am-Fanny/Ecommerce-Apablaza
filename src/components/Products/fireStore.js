@@ -4,7 +4,7 @@ import { doc, getDoc } from '@firebase/firestore';
 
 
 
-const firestore = async (idCat) => {
+ export const firestore = async (idCat) => {
     let q;
     
     if (idCat) {
@@ -15,7 +15,7 @@ const firestore = async (idCat) => {
      q = query(collection(db, "products"), orderBy('name'));
 }
     const querySnapshot = await getDocs(q);
-    const dataFirestore = querySnapshot.map(document => ({
+    const dataFirestore = querySnapshot.docs.map(document => ({
         id: document.id,
         ...document.data()
     }));
@@ -33,10 +33,9 @@ export const firestorePromesa = async (itemId) => {
       }
     } else {
       // doc.data() will be undefined in this case
-      console.log("No such document!");
+      console.log("No es un documento");
     }
 }
 
 
 
-export default firestore;

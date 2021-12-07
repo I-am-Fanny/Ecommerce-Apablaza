@@ -16,10 +16,10 @@ const NavBar = () => {
                 
                 
                     <BottomNavigation sx={{bgcolor:'secondary.main'}}>
-                        <Link to='/category/13' underline='hover' style={{textDecoration:'none', color:'White', display:'flex', justifyContent:'center'}}><MenuItem>Woman</MenuItem></Link>
-                        <Link to='/category/14' underline='hover' style={{textDecoration:'none', color:'White', display:'flex', justifyContent:'center'}}><MenuItem>Man</MenuItem></Link>
-                        <Link to='/category/15' underline='hover' style={{textDecoration:'none', color:'White', display:'flex', justifyContent:'center'}}><MenuItem>Boy</MenuItem></Link>
-                        <Link to='/category/16' underline='hover' style={{textDecoration:'none', color:'White', display:'flex', justifyContent:'center'}}><MenuItem>Girl</MenuItem></Link>
+                        <Link to='/category/mujer' underline='hover' style={{textDecoration:'none', color:'White', display:'flex', justifyContent:'center'}}><MenuItem>Woman</MenuItem></Link>
+                        <Link to='/category/hombre' underline='hover' style={{textDecoration:'none', color:'White', display:'flex', justifyContent:'center'}}><MenuItem>Man</MenuItem></Link>
+                        <Link to='/category/nene' underline='hover' style={{textDecoration:'none', color:'White', display:'flex', justifyContent:'center'}}><MenuItem>Boy</MenuItem></Link>
+                        <Link to='/category/nena' underline='hover' style={{textDecoration:'none', color:'White', display:'flex', justifyContent:'center'}}><MenuItem>Girl</MenuItem></Link>
                         <Link to='/cart' underline='hover' style={{textDecoration:'none', color:'White', display:'flex', justifyContent:'end'}}><NavCart/></Link>
                         
                     </BottomNavigation>

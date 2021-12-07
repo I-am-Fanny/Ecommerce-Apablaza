@@ -8,7 +8,7 @@ import { firestorePromesa } from './Products/fireStore';
 
 const ItemDetailContainer = () => {
 
-    const[dato, setDato] = useState({});
+    const [dato, setDato] = useState({});
     const { itemId  } = useParams();
     
 

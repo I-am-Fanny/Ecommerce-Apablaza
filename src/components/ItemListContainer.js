@@ -1,10 +1,10 @@
 import ItemList from './ItemList';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import firestore from './Products/fireStore';
+import { firestore } from './Products/fireStore';
 
 const ItemListContainer = () => {
-  const[datos, setDatos] = useState([]);
+  const [datos, setDatos] = useState([]);
   const { idCat } = useParams();
 
 
@@ -13,14 +13,14 @@ const ItemListContainer = () => {
     firestore(idCat)
     .then((result) => setDatos(result))
     .catch(err => console.log(err))
-  },[ idCat]);
+  },[ datos, idCat]);
 
 
    useEffect(() => {
      return (() => {
        setDatos([]);
      })
-   })
+   }, [])
 
   return(
    <>
