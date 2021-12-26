@@ -21,7 +21,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
   return (
     
-      <StyledBadge badgeContent={test.calculoQuantity} sx={{color:'white'}}>
+      <StyledBadge badgeContent={test.calculoQuantity()} style={{color:'white'}}>
         <ShoppingCartIcon />
       </StyledBadge>
     

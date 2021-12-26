@@ -4,7 +4,7 @@ import { createContext, useState } from "react";
 export const CartContext = createContext();
 
 const CartContextProvider = ( { children }) => {
-    const [cartList, setCartList] = useState([]);
+    const [cartList, setCartList] = useState ([]);
 
     const addToCart = (item, quantityToAdd) => {
         let found = cartList.find(product => product.itemId === item.id);
@@ -21,6 +21,9 @@ const CartContextProvider = ( { children }) => {
             ])
         }else{
             found.qtyItem += quantityToAdd;
+            setCartList([
+                  ...cartList
+            ]);
         }
     }
 

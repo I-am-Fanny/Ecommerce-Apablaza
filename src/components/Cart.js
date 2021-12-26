@@ -16,18 +16,21 @@ const Cart = () => {
     const test = useContext(CartContext);
 
     const createOrders = () => {
+        
         let orders = {
             buyer: {
                 name: "Fanny Apablaza",
                 email: "fanny@apablaza.com",
                 phone: "1123456789"
             },
-            items: test.cartList.map(item => ({
+            items:  test.cartList.map(item => ({
                 id: item.itemId,
                 title: item.nameItem,
                 price: item.precioItem,
                 quantity: item.qtyItem
             })),
+    
+            
             total: test.totalCompra()
         };
 
@@ -41,8 +44,8 @@ const Cart = () => {
         }
 
         createOrderFireStore()
-        .then(result => alert(result.id))
-        .catch(err => console.log(err))
+        .then(result => alert('Tu compra se ha procesado correctamente. Tu número de compra es:' + result.id))
+        .catch(err => console.log(err));
         
         
 
@@ -55,13 +58,14 @@ const Cart = () => {
         
         test.removeList();
        }
+
     return(
         <Box>
            <Typography variant="h5" component="div" gutterBottom m={5} p={5} sx={{display:'flex', justifyContent:'center', color:'warning.main'}}>COMPRAS</Typography>
            <Link to='/'sx={{textDecoration:'none'}}><Button variant="contained" sx={{ listStyle:'none' ,bgcolor:'secondary.main'}}  m={3}><ArrowBackIcon/>Seguir Comprando</Button></Link>
            {
                (test.cartList.length > 0)
-               ?<Button sx={{m:5, display:'inline-flex', justifyContent: 'flex-end' }} variant="outlined" type="filled" onClick={test.removeList}>BORRAR TODOS LOS PRODUCTOS</Button>
+               ?<Button sx={{m:5, display:'inline-flex', justifyContent: 'flex-end', bgcolor:'warning.main' }} variant="outlined" type="filled" onClick={test.removeList}>BORRAR TODOS LOS PRODUCTOS</Button>
                :<Typography variant="h6" component="div" gutterBottom m={3} sx={{display:'flex', justifyContent:'center', color:'primary'}}>El carrito está vacío</Typography>
             }
 
@@ -74,38 +78,42 @@ const Cart = () => {
                         <CardMedia component="img" height="300" width="200" image={item.imgItem} alt="producto"/>
                         <CardContent> 
                             <Typography>Pruducto: {item.nameItem}</Typography>
-                            <Button variant="outlined" type="filled" onClick={() => test.deleteItem(item.itemId)}>Eliminar</Button>  
+                            <Button variant="outlined" color="warning" type="filled" onClick={() => test.deleteItem(item.itemId)}>Eliminar</Button>  
                             
                         </CardContent>
-                        <CardContent>
+                        <CardContent sx={{display:'inline-flex', m:2, justifyContent:'space-between'}}>
                            <Fab variant="extended" color="secondary">{item.qtyItem} producto(s)</Fab>
                            <Fab variant="extended" color="secondary">${item.precioItem} unidad</Fab>
                            <Fab variant="extended" color="none">$ {test.calculoTotalItem(item.itemId) }</Fab>
                         </CardContent>
                         </CardActionArea>
                     
-                    </Card>
+                    </Card> 
                     )
                 }
             </Box>
              {
                  test.cartList.length > 0 &&
-                 <Container>
-                     <Card>
-                         <Typography  variant="h3" component="div">Presupuesto</Typography>
+                 <Container sx={{display:'inline-flex', justifyContent:'center', m:5}}>
+                     <Card sx={{bgcolor:'secondary.light', textAlign:'center'}}>
+                         <Typography  variant="h3" component="div" sx={{color:'white', fontSize:'35'}}>Presupuesto</Typography>
                          <CardContent>
-                             <Typography variant="h4">Subtotal</Typography>
+                             <Typography variant="h4" sx={{color:'white', fontSize:'25'}}>Subtotal</Typography>
                              <Box><Number number={test.calculoSubTotal()}/></Box>
                          </CardContent>
                          <CardContent>
-                             <Typography>IVA</Typography>
+                             <Typography sx={{color:'white', fontSize:'25'}}>IVA</Typography>
                              <Box><Number number={test.calculoImpuestos()}/></Box>
                          </CardContent>
                          <CardContent>
-                             <Typography>Total</Typography>
+                             <Typography sx={{color:'white', fontSize:'25'}}>Descuento delIVA</Typography>
+                             <Box><Number number={-test.calculoImpuestos()}/></Box>
+                         </CardContent>
+                         <CardContent>
+                             <Typography sx={{color:'white', fontSize:'25'}}>Total</Typography>
                              <Box><Number number={test.totalCompra()}/></Box>
                          </CardContent>
-                         <Button onClick={createOrders}>Comprar</Button>
+                         <Button variant="extended" color="warning" sx={{fontSize:20, color:'white', bgcolor:'warning.main'}} onClick={createOrders}>Comprar</Button>
                      </Card>
                  </Container>
              }

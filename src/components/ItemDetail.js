@@ -12,7 +12,7 @@ import { CartContext } from './CartContext';
     const test = useContext(CartContext);
     
     const onAdd = (quantityToAdd) => {
-        alert(" Se agregaron " +  quantityToAdd  +" productos");
+        alert(" Se agregaron " +  quantityToAdd  +" productos.");
         setItemCount(quantityToAdd);
         test.addToCart(item, quantityToAdd);
     }
@@ -30,15 +30,15 @@ import { CartContext } from './CartContext';
             <CardContent>
                     <Typography sx={{textAlign:'center', fontSize:35, fontWeight:'800'}}>{item.name}</Typography>
                     <Typography sx={{textAlign:'center', fontSize:15, fontWeight:'400'}}>{item.descripcion}</Typography>                    
-                    <Typography sx={{textAlign:'center', fontSize:20, fontWeight:'900', color:'warning.main'}}>{item.precio}</Typography>                    
+                    <Typography sx={{textAlign:'center', fontSize:20, fontWeight:'900', color:'warning.main'}}>${item.precio}</Typography>                    
                     <Typography sx={{textAlign:'center', fontSize:13, fontWeight:'300'}}>{item.stock}Unidades</Typography>                    
-                    <ItemCount/>
+                    
                 </CardContent>
 
                 {
                     itemCount === 0
                     ? <ItemCount stock={item.stock} initial={itemCount} onAdd={onAdd} />
-                    :  <Link to='/cart' underline='hover' style={{textDecoration:'none', color:'White', display:'flex', justifyContent:'end'}}><AddTaskIcon color="warning" m={5}/></Link>
+                    : <Link to='/cart' underline='hover' style={{textDecoration:'none', color:'White', display:'flex', justifyContent:'end'}}><AddTaskIcon color="warning" m={5}/></Link>
                 }
             </Card> 
         </Box>

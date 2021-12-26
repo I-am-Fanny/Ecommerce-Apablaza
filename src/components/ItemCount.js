@@ -7,7 +7,7 @@ import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 
 const ItemCount = ( { stock = 0, initial = 1, onAdd }) => {
 
-    const [count, setCount] = useState( 0 );
+    const [count, setCount] = useState(0);
 
 
     useEffect(() => {
@@ -15,7 +15,7 @@ const ItemCount = ( { stock = 0, initial = 1, onAdd }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     } , [] );
 
-    const increment = () =>{
+    const increment = () => {
         if (count < stock ) {
             setCount(count + 1);
         
@@ -35,9 +35,9 @@ const ItemCount = ( { stock = 0, initial = 1, onAdd }) => {
          <Box sx={{display:'inline-flex' , m:5, p:5, justifyContent:'center', alignItems:'center'}}>
 
 
-              <Button variant="text" onClick= { increment }><AddCircleOutlineIcon/></Button>
+              <Button variant="text" onClick={increment}><AddCircleOutlineIcon/></Button>
             <Typography>{count}</Typography>
-             <Button variant="text" onClick= { decrement }><RemoveCircleOutlineIcon/></Button>
+             <Button variant="text" onClick= {decrement}><RemoveCircleOutlineIcon/></Button>
 
              {
                 stock && count
